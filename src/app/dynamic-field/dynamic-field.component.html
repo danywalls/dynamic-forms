@@ -1,0 +1,17 @@
+<div *ngIf="field.type === 'text'">
+    <app-dynamic-input [formName]="formName" [field]="field"></app-dynamic-input>
+</div>
+
+<div *ngIf="field.type === 'select'">
+    <app-dynamic-select [formName]="formName" [field]="field"></app-dynamic-select>
+</div>
+
+<div *ngIf="field.type === 'radio'">
+    <app-dynamic-radio [formName]="formName" [field]="field"></app-dynamic-radio>
+</div>
+
+<div *ngIf="field.type === 'checkbox'">
+    <app-dynamic-checkboxs [formName]="formName" [field]="field"></app-dynamic-checkboxs>
+</div>
+
+
