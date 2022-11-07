@@ -11,11 +11,17 @@ export class AppComponent {
       type: "text",
       value: "",
       label: "FirstName",
+      validator: {
+        required: true,
+      },
     },
     lastname: {
       type: "text",
       value: "",
       label: "LastName",
+      validator: {
+        required: true,
+      },
     },
     address: {
       type: "text",
@@ -26,6 +32,10 @@ export class AppComponent {
       type: "number",
       value: "",
       label: "age",
+      validators: {
+        min: 10,
+        max: 15,
+      },
     },
     birthDay: {
       type: "date",
@@ -54,7 +64,7 @@ export class AppComponent {
     newsletterIn: {
       label: "Suscribe to newsletter",
       value: "email",
-      type: "checkbox"
+      type: "checkbox",
     },
     suscriptionType: {
       label: "Suscription Type",

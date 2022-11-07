@@ -6,11 +6,8 @@ import { FormGroup } from "@angular/forms";
   templateUrl: "./dynamic-select.component.html",
   styleUrls: ["./dynamic-select.component.css"],
 })
-export class DynamicSelectComponent implements OnInit {
+export class DynamicSelectComponent {
   @Input() field: any;
   @Input() formName: FormGroup;
 
-  constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -1,17 +1,14 @@
-<div *ngIf="field.type === 'text'">
-    <app-dynamic-input [formName]="formName" [field]="field"></app-dynamic-input>
-</div>
 
-<div *ngIf="field.type === 'select'">
-    <app-dynamic-select [formName]="formName" [field]="field"></app-dynamic-select>
-</div>
+<ng-container [ngSwitch]="field.type">
+    <app-dynamic-input *ngSwitchCase="'text'" [formName]="formName" [field]="field"></app-dynamic-input>
+    <app-dynamic-input *ngSwitchCase="'number'" [formName]="formName" [field]="field"></app-dynamic-input>
+    <app-dynamic-select *ngSwitchCase="'select'" [formName]="formName" [field]="field"></app-dynamic-select>
+    <app-dynamic-radio *ngSwitchCase="'radio'" [formName]="formName" [field]="field"></app-dynamic-radio>
+    <app-dynamic-checkboxs *ngSwitchCase="'checkbox'" [formName]="formName" [field]="field"></app-dynamic-checkboxs>
+</ng-container>
 
-<div *ngIf="field.type === 'radio'">
-    <app-dynamic-radio [formName]="formName" [field]="field"></app-dynamic-radio>
-</div>
 
-<div *ngIf="field.type === 'checkbox'">
-    <app-dynamic-checkboxs [formName]="formName" [field]="field"></app-dynamic-checkboxs>
-</div>
+
+
 
 
