@@ -33,25 +33,13 @@ export class DynamicFormComponent implements OnInit {
     for (const field of Object.keys(this.model)) {
       const fieldProps = this.model[field];
       formGroupFields[field] = new FormControl(
-        fieldProps.value,
-        this.addValidations(fieldProps.validators)
+        fieldProps.value
       );
       this.fields.push({ ...fieldProps, fieldName: field });
     }
+    
     return formGroupFields;
   }
 
-  addValidations(validatorModel: validationType) {
-    if (!validatorModel) {
-      return [];
-    }
-    const validations = [];
-    Object.keys(validatorModel).map((validator) => {
-      switch (validator) {
-        case "required":
-          validations.push(Validators.required);
-      }
-      return validations;
-    });
-  }
+
 }

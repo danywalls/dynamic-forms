@@ -10,18 +10,12 @@ export class AppComponent {
     firstname: {
       type: "text",
       value: "",
-      label: "FirstName",
-      validator: {
-        required: true,
-      },
+      label: "FirstName"
     },
     lastname: {
       type: "text",
       value: "",
-      label: "LastName",
-      validator: {
-        required: true,
-      },
+      label: "LastName"
     },
     address: {
       type: "text",
@@ -31,11 +25,7 @@ export class AppComponent {
     age: {
       type: "number",
       value: "",
-      label: "age",
-      validators: {
-        min: 10,
-        max: 15,
-      },
+      label: "age"
     },
     birthDay: {
       type: "date",
