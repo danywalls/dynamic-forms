@@ -11,6 +11,7 @@ import { DynamicInputComponent } from "./components/dynamic-field/dynamic-input/
 import { DynamicSelectComponent } from "./components/dynamic-field/dynamic-select/dynamic-select.component";
 import { DynamicRadioComponent } from "./components/dynamic-field/dynamic-radio/dynamic-radio.component";
 import { DynamicCheckboxsComponent } from "./components/dynamic-field/dynamic-checkboxs/dynamic-checkboxs.component";
+import { DynamicErrorComponent } from './components/dynamic-form/dynamic-error/dynamic-error.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
@@ -24,6 +25,7 @@ import { DynamicCheckboxsComponent } from "./components/dynamic-field/dynamic-ch
     DynamicSelectComponent,
     DynamicRadioComponent,
     DynamicCheckboxsComponent,
+    DynamicErrorComponent,
   ],
   bootstrap: [AppComponent],
 })

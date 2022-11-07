@@ -10,7 +10,10 @@ export class AppComponent {
     firstname: {
       type: "text",
       value: "",
-      label: "FirstName"
+      label: "FirstName",
+      rules: {
+        required: true,
+      }
     },
     lastname: {
       type: "text",

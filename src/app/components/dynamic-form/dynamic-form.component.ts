@@ -1,11 +1,5 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-
-export type validationType = {
-  min: number;
-  max: number;
-  required: boolean;
-};
+import {Component, Input, OnInit} from "@angular/core";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: "app-dynamic-form",
@@ -13,33 +7,29 @@ export type validationType = {
   styleUrls: ["./dynamic-form.component.css"],
 })
 export class DynamicFormComponent implements OnInit {
-  dynamicFormGroup: FormGroup;
   @Input() model: {};
-
-  fields = [];
+  public dynamicFormGroup: FormGroup;
+  public fields = [];
 
   ngOnInit() {
     this.buildForm();
   }
 
-  buildForm() {
+  private buildForm() {
     const formGroupFields = this.getFormControlsFields();
-
     this.dynamicFormGroup = new FormGroup(formGroupFields);
   }
 
-  getFormControlsFields() {
+  private getFormControlsFields() {
     const formGroupFields = {};
     for (const field of Object.keys(this.model)) {
       const fieldProps = this.model[field];
-      formGroupFields[field] = new FormControl(
-        fieldProps.value
-      );
-      this.fields.push({ ...fieldProps, fieldName: field });
+      formGroupFields[field] = new FormControl(fieldProps.value, Validators.required);
+      this.fields.push({...fieldProps, fieldName: field});
     }
-    
+
     return formGroupFields;
   }
 
-
+  
 }

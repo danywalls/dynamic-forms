@@ -1,0 +1,6 @@
+<div *ngIf="formName.controls[fieldName].invalid && (formName.controls[fieldName].dirty || formName.controls[fieldName].touched)"
+     class="alert">
+    <div *ngIf="formName.controls[fieldName].errors.required">
+        * {{fieldName}}
+    </div>
+</div>
