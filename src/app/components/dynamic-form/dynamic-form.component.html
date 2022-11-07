@@ -2,6 +2,5 @@
     <div *ngFor="let field of fields">
         <app-field-input [formName]="dynamicFormGroup" [field]="field"></app-field-input>
         <app-dynamic-error [formName]="dynamicFormGroup" [fieldName]="field.fieldName"></app-dynamic-error>
-
     </div>
 </form>
