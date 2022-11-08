@@ -1,12 +1,18 @@
-import { Component, Input } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { Component, Input, OnInit } from "@angular/core";
+import { FormGroup, FormGroupDirective } from "@angular/forms";
 
 @Component({
   selector: "app-dynamic-error",
   templateUrl: "./dynamic-error.component.html",
   styleUrls: ["./dynamic-error.component.css"],
 })
-export class DynamicErrorComponent {
-  @Input() formName: FormGroup;
+export class DynamicErrorComponent implements OnInit {
+  formName: FormGroup;
   @Input() fieldName: string;
+
+  constructor(private formgroupDirective: FormGroupDirective) {}
+
+  ngOnInit() {
+    this.formName = this.formgroupDirective.control;
+  }
 }

@@ -1,4 +1,5 @@
-import { Component, Input } from "@angular/core";
+import {Component, Input} from "@angular/core";
+import {FormControl, FormGroup, FormGroupDirective} from "@angular/forms";
 
 @Component({
   selector: "app-field-input",
@@ -7,5 +8,9 @@ import { Component, Input } from "@angular/core";
 })
 export class DynamicFieldComponent {
   @Input() field: any;
-  @Input() formName: any;
+  formName: FormGroup;
+
+  constructor(private formgroupDirective: FormGroupDirective) {
+    this.formName = formgroupDirective.control
+  }
 }

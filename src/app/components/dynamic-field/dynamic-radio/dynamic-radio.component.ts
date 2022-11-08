@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { FormGroup, FormGroupDirective } from "@angular/forms";
 
 @Component({
   selector: "app-dynamic-radio",
@@ -8,5 +8,9 @@ import { FormGroup } from "@angular/forms";
 })
 export class DynamicRadioComponent {
   @Input() field: any;
-  @Input() formName: FormGroup;
+  formName: FormGroup;
+
+  constructor(private formgroupDirective: FormGroupDirective) {
+    this.formName = formgroupDirective.control;
+  }
 }
