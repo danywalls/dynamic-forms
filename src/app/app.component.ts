@@ -53,13 +53,14 @@ export class AppComponent {
           value: "1",
         },
       ],
+
     },
     newsletterIn: {
       label: "Suscribe to newsletter",
       value: "email",
       type: "checkbox",
     },
-    suscriptionType: {
+    subscriptionType: {
       label: "Suscription Type",
       value: "premium",
       type: "select",
@@ -78,5 +79,56 @@ export class AppComponent {
         },
       ],
     },
+    country: {
+      id: 'country',
+      label: "Country",
+      type: "select",
+      options: [
+        {
+          label: "Spain",
+          value: "ES"
+        },
+        {
+          label: "USA",
+          value: "US"
+        }
+      ],
+      provideData: [
+        {
+          label: 'Barcelona',
+          sourceValue: 'ES',
+          value: 'BCN'
+        },
+        {
+          label: 'Madrid',
+          sourceValue: 'ES',
+          value: 'MDN'
+        },
+        {
+          label: 'New York',
+          sourceValue: 'US',
+          value: 'NYC'
+        },
+        {
+          label: 'Cleveland',
+          sourceValue: 'CLV',
+          value: 'E'
+        }
+      ]
+
+    },
+    city: {
+      label: "City",
+      type: "select",
+      link: 'country',
+      value: "",
+      options: [
+        {
+          label: "Select Country First",
+          value: ""
+        }
+      ]
+    }
   };
 }
+
