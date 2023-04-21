@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input } from "@angular/core";
 import { FormGroup, FormGroupDirective } from "@angular/forms";
 import { tap, filter, iif, takeWhile } from "rxjs";
-import { MessageService } from "src/app/services/message.service";
+import { MessageService } from "../../../services/message.service";
 
 
 @Component({
