@@ -1,4 +1,4 @@
-# Dynamic Forms in Angular
+# How To Create Dynamic Forms in Angular
 
 This code part of the my article [Creating Dynamic Forms in Angular: A Step-by-Step Guide](https://www.danywalls.com/creating-dynamic-forms-in-angular-a-step-by-step-guide), on the guide, I explain how to create a dynamic form using angular and reactive forms, start from simple scenario to other case suggested by the community. 
 
