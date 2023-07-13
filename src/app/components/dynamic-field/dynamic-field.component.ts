@@ -6,7 +6,7 @@ import {
   ViewChild,
   ViewContainerRef
 } from "@angular/core";
-import {FormGroup, FormGroupDirective} from "@angular/forms";
+import {FormGroup} from "@angular/forms";
 import {DynamicInputComponent} from "./dynamic-input/dynamic-input.component";
 import {DynamicSelectComponent} from "./dynamic-select/dynamic-select.component";
 import {DynamicRadioComponent} from "./dynamic-radio/dynamic-radio.component";
@@ -49,7 +49,7 @@ export class DynamicFieldComponent implements AfterViewInit{
   @Input() field: any;
   formName: FormGroup;
 
-  constructor(private formgroupDirective: FormGroupDirective, private cd: ChangeDetectorRef) {
+  constructor(private cd: ChangeDetectorRef) {
 
   }
 
