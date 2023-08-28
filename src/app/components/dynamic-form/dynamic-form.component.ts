@@ -7,9 +7,12 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ["./dynamic-form.component.css"],
 })
 export class DynamicFormComponent implements OnInit {
-  @Input() model: {};
+  @Input() model: any;
+  @Input() actions: any;
+  
   public dynamicFormGroup: FormGroup;
   public fields = [];
+  
 
   ngOnInit() {
     this.buildForm();

@@ -130,5 +130,18 @@ export class AppComponent {
       ]
     }
   };
+  
+
+  actions = {
+    accept: {
+      label: 'Accept',
+      action: () => console.log('sending')
+    },
+    cancel: {
+    label: 'Cancel',
+    action: () => console.log('cancel')
+    }
+  } 
 }
+
 

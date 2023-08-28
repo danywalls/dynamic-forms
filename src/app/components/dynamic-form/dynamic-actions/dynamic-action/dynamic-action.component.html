@@ -1,0 +1,2 @@
+<button *ngFor="let btnAction of actions" (click)="btnAction.action"
+ [type]="btnAction?.type || 'button'">{{btnAction.label}}</button> 
