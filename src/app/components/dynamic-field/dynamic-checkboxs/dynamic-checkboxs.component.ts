@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, input } from "@angular/core";
 import { FormGroup, FormGroupDirective, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 
@@ -9,7 +9,7 @@ import { CommonModule } from "@angular/common";
   imports: [CommonModule, ReactiveFormsModule]
 })
 export class DynamicCheckboxsComponent {
-  @Input() field: any;
+  field = input<any>();
   formName: FormGroup;
 
   constructor(private formgroupDirective: FormGroupDirective) {

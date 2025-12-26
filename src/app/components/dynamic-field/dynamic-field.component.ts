@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
-  Input,
+  input,
   ViewChild,
   ViewContainerRef
 } from "@angular/core";
@@ -48,7 +48,7 @@ export class DynamicFieldComponent implements AfterViewInit {
     }
   ]
   @ViewChild('dynamicInputContainer', { read: ViewContainerRef }) dynamicInputContainer!: ViewContainerRef;
-  @Input() field: any;
+  field = input<any>();
   formName: FormGroup;
 
   constructor(private cd: ChangeDetectorRef) {
@@ -61,9 +61,12 @@ export class DynamicFieldComponent implements AfterViewInit {
 
   private registerDynamicField() {
     this.dynamicInputContainer.clear();
-    const componentInstance = this.getComponentByType(this.field.type)
+    const fieldValue = this.field();
+    if (!fieldValue) return;
+
+    const componentInstance = this.getComponentByType(fieldValue.type)
     const dynamicComponent = this.dynamicInputContainer.createComponent(componentInstance)
-    dynamicComponent.setInput('field', this.field);
+    dynamicComponent.setInput('field', fieldValue);
     this.cd.detectChanges();
   }
 
