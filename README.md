@@ -1,13 +1,14 @@
 # How To Create Dynamic Forms in Angular
 
-This code is part of the my article [Creating Dynamic Forms in Angular: A Step-by-Step Guide](https://www.danywalls.com/creating-dynamic-forms-in-angular-a-step-by-step-guide). In the guide, I explain how to create a dynamic form using **Angular 19** and Reactive Forms, starting from a simple scenario to other cases suggested by the community.
+This code is part of the my article [Creating Dynamic Forms in Angular: A Step-by-Step Guide](https://www.danywalls.com/creating-dynamic-forms-in-angular-a-step-by-step-guide). In the guide, I explain how to create a dynamic form using **Angular 20** and Reactive Forms, starting from a simple scenario to other cases suggested by the community.
 
 ## Features
 
 - Dynamic form generation based on JSON configuration
 - Support for various input types (Text, Number, Date, Radio, Checkbox, Select)
 - Validation integration
-- Updated to **Angular 19**
+- **Updated to Angular 20**
+- **Fully standalone components architecture** (no NgModules)
 
 ## Getting Started
 
