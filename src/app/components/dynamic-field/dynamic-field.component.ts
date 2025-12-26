@@ -6,18 +6,20 @@ import {
   ViewChild,
   ViewContainerRef
 } from "@angular/core";
-import {FormGroup} from "@angular/forms";
-import {DynamicInputComponent} from "./dynamic-input/dynamic-input.component";
-import {DynamicSelectComponent} from "./dynamic-select/dynamic-select.component";
-import {DynamicRadioComponent} from "./dynamic-radio/dynamic-radio.component";
-import {DynamicCheckboxsComponent} from "./dynamic-checkboxs/dynamic-checkboxs.component";
+import { FormGroup } from "@angular/forms";
+import { DynamicInputComponent } from "./dynamic-input/dynamic-input.component";
+import { DynamicSelectComponent } from "./dynamic-select/dynamic-select.component";
+import { DynamicRadioComponent } from "./dynamic-radio/dynamic-radio.component";
+import { DynamicCheckboxsComponent } from "./dynamic-checkboxs/dynamic-checkboxs.component";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-field-input",
   templateUrl: "./dynamic-field.component.html",
   styleUrls: ["./dynamic-field.component.css"],
+  imports: [CommonModule]
 })
-export class DynamicFieldComponent implements AfterViewInit{
+export class DynamicFieldComponent implements AfterViewInit {
 
   supportedDynamicComponents = [
     {
@@ -45,7 +47,7 @@ export class DynamicFieldComponent implements AfterViewInit{
       component: DynamicCheckboxsComponent
     }
   ]
-  @ViewChild('dynamicInputContainer', { read: ViewContainerRef}) dynamicInputContainer!: ViewContainerRef;
+  @ViewChild('dynamicInputContainer', { read: ViewContainerRef }) dynamicInputContainer!: ViewContainerRef;
   @Input() field: any;
   formName: FormGroup;
 
