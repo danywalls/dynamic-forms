@@ -1,6 +1,7 @@
-<form [formGroup]="dynamicFormGroup()">
-    <div *ngFor="let field of fields()">
-        <app-field-input [field]="field"></app-field-input>
-        <app-dynamic-error [fieldName]="field.fieldName"></app-dynamic-error>
+<div>
+    <div *ngFor="let fieldConfig of fields()">
+        <app-field-input [field]="fieldConfig" [formField]="dynamicForm[fieldConfig.fieldName]"></app-field-input>
+        <app-dynamic-error [fieldName]="fieldConfig.fieldName"
+            [formField]="dynamicForm[fieldConfig.fieldName]"></app-dynamic-error>
     </div>
-</form>
+</div>

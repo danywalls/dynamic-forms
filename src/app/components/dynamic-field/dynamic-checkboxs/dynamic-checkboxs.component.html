@@ -1,7 +1,6 @@
-<form [formGroup]="formName">
+<div>
     <label>
         {{ field()?.label }}
-        <input type="checkbox" [name]="field()?.fieldName" [formControlName]="field()?.fieldName"
-            [value]="field()?.value" />
+        <input type="checkbox" [field]="formField()" />
     </label>
-</form>
+</div>

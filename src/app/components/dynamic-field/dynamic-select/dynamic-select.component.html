@@ -1,9 +1,9 @@
-<form [formGroup]="formName">
+<div>
   <label>{{ field()?.label }}:</label>
 
-  <select #dynamicSelect [formControlName]="field()?.fieldName" (change)="changedValue(dynamicSelect.value)">
+  <select #dynamicSelect [field]="formField()" (change)="changedValue(dynamicSelect.value)">
     <option *ngFor="let option of field()?.options" [value]="option.value">
       {{ option.label }}
     </option>
   </select>
-</form>
+</div>

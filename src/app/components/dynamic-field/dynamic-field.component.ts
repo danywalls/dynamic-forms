@@ -49,7 +49,7 @@ export class DynamicFieldComponent implements AfterViewInit {
   ]
   @ViewChild('dynamicInputContainer', { read: ViewContainerRef }) dynamicInputContainer!: ViewContainerRef;
   field = input<any>();
-  formName: FormGroup;
+  formField = input<any>();
 
   constructor(private cd: ChangeDetectorRef) {
 
@@ -67,6 +67,7 @@ export class DynamicFieldComponent implements AfterViewInit {
     const componentInstance = this.getComponentByType(fieldValue.type)
     const dynamicComponent = this.dynamicInputContainer.createComponent(componentInstance)
     dynamicComponent.setInput('field', fieldValue);
+    dynamicComponent.setInput('formField', this.formField());
     this.cd.detectChanges();
   }
 

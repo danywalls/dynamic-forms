@@ -1,7 +1,7 @@
-<form [formGroup]="formName">
+<div>
     <h3>{{field()?.label}}</h3>
     <label *ngFor="let option of field()?.options">
-        <input type="radio" [name]="field()?.fieldName" [formControlName]="field()?.fieldName" [value]="option.value">
+        <input type="radio" [value]="option.value" [field]="formField()">
         {{option.label}}
     </label>
-</form>
+</div>

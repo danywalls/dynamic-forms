@@ -1,6 +1,5 @@
-<div *ngIf="formName.controls[fieldName()].invalid && (formName.controls[fieldName()].dirty || formName.controls[fieldName()].touched)"
-    class="alert">
-    <div *ngIf="formName.controls[fieldName()].errors.required">
-        * {{fieldName()}}
+<div *ngIf="formField() && formField()().valid() === false && formField()().touched()" class="alert">
+    <div *ngIf="formField()().errors()?.required">
+        * {{fieldName()}} is required
     </div>
 </div>

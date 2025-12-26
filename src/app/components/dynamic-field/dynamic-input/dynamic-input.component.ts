@@ -1,18 +1,14 @@
 import { Component, input } from "@angular/core";
-import { FormGroup, FormGroupDirective, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { Field } from "@angular/forms/signals";
 
 @Component({
   selector: "app-dynamic-input",
   templateUrl: "./dynamic-input.component.html",
   styleUrls: ["./dynamic-input.component.css"],
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, Field]
 })
 export class DynamicInputComponent {
   field = input<any>();
-  formName: FormGroup;
-
-  constructor(private formgroupDirective: FormGroupDirective) {
-    this.formName = formgroupDirective.control;
-  }
+  formField = input<any>();
 }
