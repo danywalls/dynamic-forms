@@ -1,12 +1,10 @@
 import {
   AfterViewInit,
-  ChangeDetectorRef,
   Component,
   input,
   ViewChild,
   ViewContainerRef
 } from "@angular/core";
-import { FormGroup } from "@angular/forms";
 import { DynamicInputComponent } from "./dynamic-input/dynamic-input.component";
 import { DynamicSelectComponent } from "./dynamic-select/dynamic-select.component";
 import { DynamicRadioComponent } from "./dynamic-radio/dynamic-radio.component";
@@ -51,8 +49,8 @@ export class DynamicFieldComponent implements AfterViewInit {
   field = input<any>();
   formField = input<any>();
 
-  constructor(private cd: ChangeDetectorRef) {
-
+  constructor() {
+    // No dependencies needed with signals!
   }
 
   ngAfterViewInit(): void {
@@ -68,7 +66,7 @@ export class DynamicFieldComponent implements AfterViewInit {
     const dynamicComponent = this.dynamicInputContainer.createComponent(componentInstance)
     dynamicComponent.setInput('field', fieldValue);
     dynamicComponent.setInput('formField', this.formField());
-    this.cd.detectChanges();
+    // No need for detectChanges() with signals - Angular handles it automatically!
   }
 
   getComponentByType(type: string): any {

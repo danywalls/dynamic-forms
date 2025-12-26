@@ -1,7 +1,9 @@
 <div>
-    <div *ngFor="let fieldConfig of fields()">
+    @for (fieldConfig of fields(); track fieldConfig.fieldName) {
+    <div>
         <app-field-input [field]="fieldConfig" [formField]="dynamicForm[fieldConfig.fieldName]"></app-field-input>
         <app-dynamic-error [fieldName]="fieldConfig.fieldName"
             [formField]="dynamicForm[fieldConfig.fieldName]"></app-dynamic-error>
     </div>
+    }
 </div>

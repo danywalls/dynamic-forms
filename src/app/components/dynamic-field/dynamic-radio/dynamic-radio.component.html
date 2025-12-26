@@ -1,7 +1,9 @@
 <div>
     <h3>{{field()?.label}}</h3>
-    <label *ngFor="let option of field()?.options">
+    @for (option of field()?.options; track option.value) {
+    <label>
         <input type="radio" [value]="option.value" [field]="formField()">
         {{option.label}}
     </label>
+    }
 </div>

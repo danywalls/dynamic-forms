@@ -2,8 +2,10 @@
   <label>{{ field()?.label }}:</label>
 
   <select #dynamicSelect [field]="formField()" (change)="changedValue(dynamicSelect.value)">
-    <option *ngFor="let option of field()?.options" [value]="option.value">
+    @for (option of field()?.options; track option.value) {
+    <option [value]="option.value">
       {{ option.label }}
     </option>
+    }
   </select>
 </div>

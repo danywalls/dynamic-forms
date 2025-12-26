@@ -1,5 +1,9 @@
-<div *ngIf="formField() && formField()().valid() === false && formField()().touched()" class="alert">
-    <div *ngIf="formField()().errors()?.required">
+@if (formField() && formField()().valid() === false && formField()().touched()) {
+<div class="alert">
+    @if (formField()().errors()?.required) {
+    <div>
         * {{fieldName()}} is required
     </div>
+    }
 </div>
+}
