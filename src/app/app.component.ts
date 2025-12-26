@@ -1,9 +1,12 @@
 import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { DynamicFormComponent } from "./components/dynamic-form/dynamic-form.component";
 
 @Component({
   selector: "my-app",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
+  imports: [CommonModule, DynamicFormComponent]
 })
 export class AppComponent {
   model = {

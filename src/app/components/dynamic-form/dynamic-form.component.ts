@@ -1,10 +1,14 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { Component, Input, OnInit } from "@angular/core";
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { DynamicFieldComponent } from "../dynamic-field/dynamic-field.component";
+import { DynamicErrorComponent } from "./dynamic-error/dynamic-error.component";
 
 @Component({
   selector: "app-dynamic-form",
   templateUrl: "./dynamic-form.component.html",
   styleUrls: ["./dynamic-form.component.css"],
+  imports: [CommonModule, ReactiveFormsModule, DynamicFieldComponent, DynamicErrorComponent]
 })
 export class DynamicFormComponent implements OnInit {
   @Input() model: {};
@@ -28,7 +32,7 @@ export class DynamicFormComponent implements OnInit {
       const validators = this.addValidator(fieldProps.rules);
 
       formGroupFields[field] = new FormControl(fieldProps.value, validators);
-      this.fields.push({...fieldProps, fieldName: field});
+      this.fields.push({ ...fieldProps, fieldName: field });
     }
 
     return formGroupFields;
@@ -43,7 +47,7 @@ export class DynamicFormComponent implements OnInit {
       switch (rule) {
         case "required":
           return Validators.required;
-          //add more case for future.
+        //add more case for future.
       }
     });
     return validators;
