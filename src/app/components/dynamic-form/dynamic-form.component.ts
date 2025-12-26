@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, input, signal, effect } from "@angular/core";
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { DynamicFieldComponent } from "../dynamic-field/dynamic-field.component";
@@ -10,35 +10,42 @@ import { DynamicErrorComponent } from "./dynamic-error/dynamic-error.component";
   styleUrls: ["./dynamic-form.component.css"],
   imports: [CommonModule, ReactiveFormsModule, DynamicFieldComponent, DynamicErrorComponent]
 })
-export class DynamicFormComponent implements OnInit {
-  @Input() model: {};
-  public dynamicFormGroup: FormGroup;
-  public fields = [];
+export class DynamicFormComponent {
+  model = input<any>({});
+  dynamicFormGroup = signal<FormGroup>(new FormGroup({}));
+  fields = signal<any[]>([]);
 
-  ngOnInit() {
-    this.buildForm();
+  constructor() {
+    effect(() => {
+      const modelValue = this.model();
+      if (modelValue && Object.keys(modelValue).length > 0) {
+        this.buildForm(modelValue);
+      }
+    });
   }
 
-  private buildForm() {
-    const formGroupFields = this.getFormControlsFields();
-    this.dynamicFormGroup = new FormGroup(formGroupFields);
+  private buildForm(modelValue: any) {
+    const formGroupFields = this.getFormControlsFields(modelValue);
+    this.dynamicFormGroup.set(new FormGroup(formGroupFields));
   }
 
-  private getFormControlsFields() {
-    const formGroupFields = {};
-    for (const field of Object.keys(this.model)) {
+  private getFormControlsFields(modelValue: any) {
+    const formGroupFields: Record<string, FormControl> = {};
+    const fieldsList: any[] = [];
 
-      const fieldProps = this.model[field];
+    for (const field of Object.keys(modelValue)) {
+      const fieldProps = modelValue[field];
       const validators = this.addValidator(fieldProps.rules);
 
       formGroupFields[field] = new FormControl(fieldProps.value, validators);
-      this.fields.push({ ...fieldProps, fieldName: field });
+      fieldsList.push({ ...fieldProps, fieldName: field });
     }
 
+    this.fields.set(fieldsList);
     return formGroupFields;
   }
 
-  private addValidator(rules) {
+  private addValidator(rules: any) {
     if (!rules) {
       return [];
     }

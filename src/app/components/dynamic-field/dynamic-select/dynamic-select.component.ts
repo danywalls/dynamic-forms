@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from "@angular/core";
+import { AfterViewInit, Component, input } from "@angular/core";
 import { FormGroup, FormGroupDirective, ReactiveFormsModule } from "@angular/forms";
 import { tap, filter, iif, takeWhile } from "rxjs";
 import { MessageService } from "../../../services/message.service";
@@ -12,7 +12,7 @@ import { CommonModule } from "@angular/common";
   imports: [CommonModule, ReactiveFormsModule]
 })
 export class DynamicSelectComponent implements AfterViewInit {
-  @Input() field: any;
+  field = input<any>();
   formName: FormGroup;
   alive = true;
 
@@ -32,24 +32,29 @@ export class DynamicSelectComponent implements AfterViewInit {
   }
 
   listenForLinkData() {
-    if (!this.field?.link) {
+    const fieldValue = this.field();
+    if (!fieldValue?.link) {
       return;
     }
     this.messageService.message$.pipe(
-      filter(v => v.link === this.field.link),
+      filter(v => v.link === fieldValue.link),
       takeWhile(() => this.alive)
     ).subscribe((v) => {
-      this.field.options = v.data
+      const currentField = this.field();
+      if (currentField) {
+        currentField.options = v.data;
+      }
     })
   }
 
   changedValue(value: string) {
-    if (!this.field.provideData) {
+    const fieldValue = this.field();
+    if (!fieldValue?.provideData) {
       return;
     }
     this.messageService.messageSubject.next({
-      link: this.field.fieldName,
-      data: this.field.provideData.filter(v => v.sourceValue === value)
+      link: fieldValue.fieldName,
+      data: fieldValue.provideData.filter(v => v.sourceValue === value)
     })
   }
 }

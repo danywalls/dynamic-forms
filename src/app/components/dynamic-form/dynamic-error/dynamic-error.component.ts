@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, input, OnInit } from "@angular/core";
 import { FormGroup, FormGroupDirective, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 
@@ -10,7 +10,7 @@ import { CommonModule } from "@angular/common";
 })
 export class DynamicErrorComponent implements OnInit {
   formName: FormGroup;
-  @Input() fieldName: string;
+  fieldName = input<string>('');
 
   constructor(private formgroupDirective: FormGroupDirective) { }
 
